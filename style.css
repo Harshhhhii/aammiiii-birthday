@@ -1023,3 +1023,93 @@ body {
     color: white;
     z-index: 10000000000000000;
 }
+
+/* =========================
+   MOBILE SECRET LETTER FIX
+   ========================= */
+
+@media screen and (max-width: 658px) {
+
+    .boxMail {
+        padding: 10px;
+    }
+
+    .boxMail .boxMail-container {
+        width: 92vw;
+        height: 78vh;
+        max-height: 600px;
+        display: block;
+        transform: none;
+        perspective: 1200px;
+    }
+
+    .boxMail .boxMail-container:hover {
+        transform: none;
+        filter: none;
+    }
+
+    .boxMail .boxMail-container .card1,
+    .boxMail .boxMail-container .card2 {
+        width: 100%;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+    }
+
+    .boxMail .boxMail-container .card1 {
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+
+    .boxMail .boxMail-container .card2 {
+        z-index: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Open the front of the letter when JS adds .opened */
+    .boxMail .boxMail-container.opened .card1 {
+        transform: translate(-50%, -50%) rotateY(-140deg);
+    }
+
+    .boxMail .boxMail-container .card1 h3 {
+        font-size: 30px;
+        letter-spacing: 2px;
+    }
+
+    .boxMail .boxMail-container .card2-content {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Make the birthday message visible on mobile */
+    .boxMail .boxMail-container.opened .card2 h2 {
+        opacity: 1;
+        visibility: visible;
+        animation: none;
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 30px 20px 30px;
+        text-indent: 10px;
+    }
+
+    .boxMail .boxMail-container.opened .imageCute2 {
+        opacity: 1;
+    }
+
+    .boxMail .boxMail-container .card2 .card2-content .imageCute2 {
+        opacity: 1;
+        top: 5px;
+        left: 20px;
+    }
+
+    .boxMail .boxMail-container .card2 .card2-content .imageCute2 img {
+        width: 35px;
+    }
+
+    .boxMail .fa-xmark {
+        top: 5px;
+        right: 5px;
+        font-size: 26px;
+        padding: 10px 15px;
+    }
+}
