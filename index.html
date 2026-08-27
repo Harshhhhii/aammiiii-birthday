@@ -255,13 +255,13 @@
         boxmail.classList.add('active')
 
         setTimeout(function () {
-            document.querySelector('.boxMail-container').classicList.add('opened')
+            document.querySelector('.boxMail-container').classList.add('opened')
         }, 800)    
     }
 
     close.addEventListener('click', function () {
         boxmail.classList.remove('active')
-        document.querySelector('.boxMail-container').classicList.remove('opened')
+        document.querySelector('.boxMail-container').classList.remove('opened')
     })
 </script>
 
