@@ -253,10 +253,15 @@
     mailBox.onclick = function () {
         mailBox.classList.toggle('active')
         boxmail.classList.add('active')
+
+        setTimeout(function () {
+            document.querySelector('.boxMail-container').classicList.add('opened')
+        }, 800)    
     }
 
     close.addEventListener('click', function () {
         boxmail.classList.remove('active')
+        document.querySelector('.boxMail-container').classicList.remove('opened')
     })
 </script>
 
