@@ -1025,31 +1025,35 @@ body {
 }
 
 /* =========================
-   PHONE LETTER SIZE FIX
+   MOBILE SECRET LETTER FIX
    ========================= */
 
 @media screen and (max-width: 658px) {
 
     .boxMail {
-        padding: 8px;
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
         overflow: hidden;
     }
 
     .boxMail .boxMail-container {
         width: 94vw;
-        height: 82vh;
-        max-height: none;
+        height: 72vh;
+        max-height: 560px;
+        position: relative;
         display: block;
-        transform: scale(0.9);
-        transform-origin: center center;
+        transform: none !important;
         perspective: 1200px;
+        overflow: visible;
     }
 
     .boxMail .boxMail-container:hover {
-        transform: scale(0.9);
-        filter: none;
+        transform: none !important;
+        filter: none !important;
     }
 
+    /* Both pages use the full mobile card */
     .boxMail .boxMail-container .card1,
     .boxMail .boxMail-container .card2 {
         width: 100%;
@@ -1058,71 +1062,104 @@ body {
         top: 50%;
     }
 
+    /* Front page */
     .boxMail .boxMail-container .card1 {
         z-index: 2;
         transform: translate(-50%, -50%);
+        transform-origin: left center;
     }
 
+    /* Inside letter */
     .boxMail .boxMail-container .card2 {
         z-index: 1;
         transform: translate(-50%, -50%);
+        overflow: hidden;
     }
 
-    /* Open envelope on phone */
+    /* Open automatically when JS adds "opened" */
     .boxMail .boxMail-container.opened .card1 {
         transform: translate(-50%, -50%) rotateY(-140deg);
     }
 
-    /* Make the inside scrollable */
-    .boxMail .boxMail-container .card2-content {
+    /* Front text */
+    .boxMail .boxMail-container .card1 h3 {
+        font-size: 28px;
+        line-height: 1.3;
+        letter-spacing: 2px;
+        width: 90%;
+    }
+
+    .boxMail .boxMail-container .card1 .userImg {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 15px;
+    }
+
+    /* Letter pink area */
+    .boxMail .boxMail-container .card2 .card2-content {
+        width: 100%;
+        height: 100%;
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         padding-bottom: 20px;
     }
 
-    /* Birthday message */
-    .boxMail .boxMail-container .card2 h2,
-    .boxMail .boxMail-container.opened .card2 h2 {
-        opacity: 1;
+    /* "Happy Birthday..." heading */
+    .boxMail .boxMail-container .card2 h3 {
+        font-size: 22px;
+        padding: 18px 15px 8px;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    /* Main birthday message */
+    .boxMail .boxMail-container .card2 h2 {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: none;
+
+        opacity: 1 !important;
         visibility: visible;
-        animation: none;
+
+        animation: none !important;
+
+        font-family: 'Dancing Script', cursive;
         font-size: 17px;
-        line-height: 1.55;
-        padding: 45px 22px 30px;
-        text-indent: 8px;
+        line-height: 1.45;
+
+        padding: 10px 20px 30px !important;
         margin: 0;
+
+        text-indent: 0;
+        overflow: visible;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
-    /* Front cover */
-    .boxMail .boxMail-container .card1 h3 {
-        font-size: 27px;
-        letter-spacing: 2px;
-        line-height: 1.3;
-    }
-
-    .boxMail .boxMail-container .card1 .userImg {
-        width: 65px;
-        height: 65px;
-        margin-bottom: 12px;
-    }
-
-    /* Little image inside the message */
+    /* Cute image */
     .boxMail .boxMail-container .card2 .card2-content .imageCute2 {
-        opacity: 1;
-        top: 8px;
-        left: 15px;
+        opacity: 1 !important;
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 5px auto 0;
+        text-align: center;
     }
 
     .boxMail .boxMail-container .card2 .card2-content .imageCute2 img {
-        width: 32px;
+        width: 40px;
     }
 
     /* Close button */
     .boxMail .fa-xmark {
-        top: 4px;
-        right: 4px;
-        font-size: 25px;
-        padding: 10px 14px;
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        font-size: 30px;
+        padding: 5px 10px;
+        color: white;
+        z-index: 999999999;
     }
 }
