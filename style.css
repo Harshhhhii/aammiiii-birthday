@@ -1024,92 +1024,60 @@ body {
     z-index: 10000000000000000;
 }
 
-/* =========================
-   MOBILE SECRET LETTER FIX
-   ========================= */
+/* Mobile/touch support for opening the envelope */
+.boxMail .boxMail-container.opened .card1 {
+    transform: translate(-187px, -250px) rotateY(-140deg);
+}
 
+.boxMail .boxMail-container.opened .card2-content {
+    transform: translate(20px, 20px);
+    box-shadow: -1px -1px 5px rgb(0, 0, 0, 0.4);
+}
+
+.boxMail .boxMail-container.opened .card2 h3 {
+    animation: texth3 3s forwards;
+    animation-delay: 2s;
+}
+
+.boxMail .boxMail-container.opened .card2 h2 {
+    animation: texth2 2s forwards;
+    animation-delay: 4s;
+}
+
+.boxMail .boxMail-container.opened .card2-content .imageCute2 {
+    animation: cute3 1s linear infinite,
+               cute4 3s 2s forwards;
+    animation-delay: 2s;
+}
+
+/* Mobile screen support */
 @media screen and (max-width: 658px) {
-
-    .boxMail {
-        padding: 10px;
-    }
-
     .boxMail .boxMail-container {
-        width: 92vw;
-        height: 78vh;
-        max-height: 600px;
-        display: block;
-        transform: none;
-        perspective: 1200px;
+        width: 90vw;
+        height: 60vw;
+        max-height: 320px;
+        transform: scale(0.9);
     }
 
-    .boxMail .boxMail-container:hover {
-        transform: none;
-        filter: none;
+    .boxMail .boxMail-container.opened {
+        transform: scale(0.9);
     }
 
-    .boxMail .boxMail-container .card1,
-    .boxMail .boxMail-container .card2 {
-        width: 100%;
-        height: 100%;
-        left: 50%;
-        top: 50%;
-    }
-
-    .boxMail .boxMail-container .card1 {
-        z-index: 2;
-        transform: translate(-50%, -50%);
-    }
-
-    .boxMail .boxMail-container .card2 {
-        z-index: 1;
-        transform: translate(-50%, -50%);
-    }
-
-    /* Open the front of the letter when JS adds .opened */
     .boxMail .boxMail-container.opened .card1 {
-        transform: translate(-50%, -50%) rotateY(-140deg);
+        transform: translate(-45vw, -30vw) rotateY(-140deg);
     }
 
     .boxMail .boxMail-container .card1 h3 {
-        font-size: 30px;
+        font-size: 22px;
         letter-spacing: 2px;
     }
 
-    .boxMail .boxMail-container .card2-content {
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+    .boxMail .boxMail-container .card2 h3 {
+        font-size: 17px;
+        padding-left: 20px;
     }
 
-    /* Make the birthday message visible on mobile */
-    .boxMail .boxMail-container.opened .card2 h2 {
-        opacity: 1;
-        visibility: visible;
-        animation: none;
-        font-size: 16px;
-        line-height: 1.5;
-        padding: 30px 20px 30px;
-        text-indent: 10px;
-    }
-
-    .boxMail .boxMail-container.opened .imageCute2 {
-        opacity: 1;
-    }
-
-    .boxMail .boxMail-container .card2 .card2-content .imageCute2 {
-        opacity: 1;
-        top: 5px;
-        left: 20px;
-    }
-
-    .boxMail .boxMail-container .card2 .card2-content .imageCute2 img {
-        width: 35px;
-    }
-
-    .boxMail .fa-xmark {
-        top: 5px;
-        right: 5px;
-        font-size: 26px;
-        padding: 10px 15px;
+    .boxMail .boxMail-container .card2 h2 {
+        font-size: 15px;
     }
 }
