@@ -1024,60 +1024,105 @@ body {
     z-index: 10000000000000000;
 }
 
-/* Mobile/touch support for opening the envelope */
-.boxMail .boxMail-container.opened .card1 {
-    transform: translate(-187px, -250px) rotateY(-140deg);
-}
+/* =========================
+   PHONE LETTER SIZE FIX
+   ========================= */
 
-.boxMail .boxMail-container.opened .card2-content {
-    transform: translate(20px, 20px);
-    box-shadow: -1px -1px 5px rgb(0, 0, 0, 0.4);
-}
-
-.boxMail .boxMail-container.opened .card2 h3 {
-    animation: texth3 3s forwards;
-    animation-delay: 2s;
-}
-
-.boxMail .boxMail-container.opened .card2 h2 {
-    animation: texth2 2s forwards;
-    animation-delay: 4s;
-}
-
-.boxMail .boxMail-container.opened .card2-content .imageCute2 {
-    animation: cute3 1s linear infinite,
-               cute4 3s 2s forwards;
-    animation-delay: 2s;
-}
-
-/* Mobile screen support */
 @media screen and (max-width: 658px) {
+
+    .boxMail {
+        padding: 8px;
+        overflow: hidden;
+    }
+
     .boxMail .boxMail-container {
-        width: 90vw;
-        height: 60vw;
-        max-height: 320px;
+        width: 94vw;
+        height: 82vh;
+        max-height: none;
+        display: block;
         transform: scale(0.9);
+        transform-origin: center center;
+        perspective: 1200px;
     }
 
-    .boxMail .boxMail-container.opened {
+    .boxMail .boxMail-container:hover {
         transform: scale(0.9);
+        filter: none;
     }
 
+    .boxMail .boxMail-container .card1,
+    .boxMail .boxMail-container .card2 {
+        width: 100%;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+    }
+
+    .boxMail .boxMail-container .card1 {
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+
+    .boxMail .boxMail-container .card2 {
+        z-index: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Open envelope on phone */
     .boxMail .boxMail-container.opened .card1 {
-        transform: translate(-45vw, -30vw) rotateY(-140deg);
+        transform: translate(-50%, -50%) rotateY(-140deg);
     }
 
-    .boxMail .boxMail-container .card1 h3 {
-        font-size: 22px;
-        letter-spacing: 2px;
+    /* Make the inside scrollable */
+    .boxMail .boxMail-container .card2-content {
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 20px;
     }
 
-    .boxMail .boxMail-container .card2 h3 {
+    /* Birthday message */
+    .boxMail .boxMail-container .card2 h2,
+    .boxMail .boxMail-container.opened .card2 h2 {
+        opacity: 1;
+        visibility: visible;
+        animation: none;
         font-size: 17px;
-        padding-left: 20px;
+        line-height: 1.55;
+        padding: 45px 22px 30px;
+        text-indent: 8px;
+        margin: 0;
     }
 
-    .boxMail .boxMail-container .card2 h2 {
-        font-size: 15px;
+    /* Front cover */
+    .boxMail .boxMail-container .card1 h3 {
+        font-size: 27px;
+        letter-spacing: 2px;
+        line-height: 1.3;
+    }
+
+    .boxMail .boxMail-container .card1 .userImg {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 12px;
+    }
+
+    /* Little image inside the message */
+    .boxMail .boxMail-container .card2 .card2-content .imageCute2 {
+        opacity: 1;
+        top: 8px;
+        left: 15px;
+    }
+
+    .boxMail .boxMail-container .card2 .card2-content .imageCute2 img {
+        width: 32px;
+    }
+
+    /* Close button */
+    .boxMail .fa-xmark {
+        top: 4px;
+        right: 4px;
+        font-size: 25px;
+        padding: 10px 14px;
     }
 }
